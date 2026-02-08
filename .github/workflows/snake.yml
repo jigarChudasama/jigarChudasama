@@ -1,27 +1,35 @@
-name: Generate snake animation
+name: Generate Web3 Snake Animation
 
 on:
   workflow_dispatch:
+
   push:
     branches:
       - main
 
+  schedule:
+    - cron: "0 */12 * * *"
+
 jobs:
-  snake:
+  generate:
     runs-on: ubuntu-latest
+
     permissions:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: Platane/snk@v3
+      - name: Generate Web3 Snake
+        uses: Platane/snk@v3
         with:
           github_user_name: jigarChudasama
           outputs: |
-            dist/snake.svg
+            dist/snake.svg?color_snake=#00F5FF&color_dots=#0D1117,#001F2F,#003A70,#005CFF,#7A00FF
 
-      - uses: crazy-max/ghaction-github-pages@v3
+      - name: Push Snake to Output Branch
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
           build_dir: dist
