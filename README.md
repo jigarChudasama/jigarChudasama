@@ -1,3 +1,9 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="dark_mode.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="light_mode.svg" />
+  <img alt="jigarChudasama's GitHub profile" src="dark_mode.svg" />
+</picture>
+
 <h2 align="left">Hi 👋! My name is jigar and I'm a MERN Stack Developer</h2>
 
 ###
